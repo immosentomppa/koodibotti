@@ -2,15 +2,18 @@ from bs4 import BeautifulSoup
 import requests
 import mysql.connector
 from datetime import datetime
+from credentials import Credentials
 
+
+creds = Credentials()
 def insert():
     try:
         print("Starting...")
         db = mysql.connector.connect(
-            host=<sensored>,
-            user=<sensored>,
-            password=<sensored>,
-            database=<sensored>,
+            host=creds.host,
+            user=creds.user,
+            password=creds.password,
+            database=creds.database,
             port=3306,
             auth_plugin='caching_sha2_password'
         )
